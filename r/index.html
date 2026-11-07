@@ -15,10 +15,12 @@
 <header class="bar">
   <a class="brand" href="../" aria-label="OSCILLA home"><img src="../img/logo.svg" alt="attic rain" class="logo"></a>
   <span class="prod">OSCILLA</span>
+  <button id="pdfBtn" class="share" hidden>Save PDF</button>
   <button id="shareBtn" class="share" hidden>Share</button>
 </header>
 <p id="msg" class="msg">Opening the report…</p>
-<iframe id="rep" title="OSCILLA report" sandbox="allow-scripts" hidden></iframe>
+<p class="printnote">To save this report as a PDF, use the Save PDF button at the top of the page.</p>
+<iframe id="rep" title="OSCILLA report" sandbox="allow-scripts allow-modals" hidden></iframe>
 <script src="share.js"></script>
 </body>
 </html>
