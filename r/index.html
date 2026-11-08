@@ -1,26 +1,46 @@
-<!doctype html>
-<html lang="en">
-<!-- © 2026 attic rain. All rights reserved. OSCILLA and its code may not be copied, modified or reused without written permission. -->
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src https://bold-voice-2354.shoutmarco.workers.dev; form-action 'none'; base-uri 'none'; object-src 'none'">
-<meta name="robots" content="noindex">
-<title>OSCILLA report</title>
-<meta name="theme-color" content="#232323">
-<link rel="icon" href="../img/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="share.css">
-</head>
-<body>
-<header class="bar">
-  <a class="brand" href="../" aria-label="OSCILLA home"><img src="../img/logo.svg" alt="attic rain" class="logo"></a>
+<!DOCTYPE html><html lang="en"><!-- © 2026 attic rain. All rights reserved. OSCILLA and its code may not be copied, modified or reused without written permission. --><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self' data:; connect-src https://bold-voice-2354.shoutmarco.workers.dev; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'"><meta name="robots" content="noindex"><title>OSCILLA report</title><meta name="theme-color" content="#232323"><link rel="icon" href="../img/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="report.css"></head><body><p id="msg" class="msg">Opening the report…</p><header class="bar">
+  <a class="brand" href="./" aria-label="OSCILLA home"><img src="../img/logo.svg" alt="attic rain" class="logo"></a>
   <span class="prod">OSCILLA</span>
-  <button id="pdfBtn" class="share" hidden>Save PDF</button>
-  <button id="shareBtn" class="share" hidden>Share</button>
+  <button id="newBtn" class="ghost" hidden>New track</button><button id="topPdf" class="ghost" hidden>Save PDF</button><button id="topShare" class="ghost" hidden>Share</button>
 </header>
-<p id="msg" class="msg">Opening the report…</p>
-<p class="printnote">To save this report as a PDF, use the Save PDF button at the top of the page.</p>
-<iframe id="rep" title="OSCILLA report" sandbox="allow-scripts allow-modals" hidden></iframe>
-<script src="share.js"></script>
-</body>
-</html>
+
+<main id="landing" hidden>
+  <section class="hero">
+    <div class="circle"><canvas id="hero" role="img" aria-label="OSCILLA's circle showing BLOOM, BURST and NURBS in turn"></canvas></div>
+    <div class="words">
+      <h1>Visual mastering for all platforms</h1>
+      <p class="subhead">Add a track. In seconds OSCILLA shows how loud it lands on every platform, where it breaks, and what to change. Measured on your <span id="where">phone</span>. Never uploaded.</p>
+      <div class="cta">
+        <button id="addBtn" class="primary">Add a track</button>
+        <span class="drophint">or drop a file anywhere on this page</span>
+      </div>
+      <div id="progress" class="progress" hidden><div class="pbar"><i></i></div><span class="ptext">Reading the file&#8230;</span></div>
+      <p id="err" class="err" hidden></p>
+    </div>
+  </section>
+  <section class="example" id="exampleStrip" role="button" tabindex="0" aria-label="Open the example report">
+    <div class="exhead"><span class="lbl">Example report &#183; <span id="exName"></span></span><b id="exVerdict"></b></div>
+    <div class="exnums" id="exNums"></div>
+    <canvas id="exLine" class="exline" aria-hidden="true"></canvas>
+    <span class="exopen">Open the example <svg class="ch" viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </section>
+  
+</main>
+
+<main id="report" hidden></main>
+
+<div id="readout" class="readout" hidden>
+  <button id="roPlay" class="roplay" aria-label="Play"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.6v12.8a.6.6 0 0 0 .9.5l10-6.4a.6.6 0 0 0 0-1L9.4 5.1a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg></button>
+  <div class="rovals" id="roVals"></div>
+</div>
+
+<div id="veil" class="veil" hidden><div>Drop to measure</div></div>
+<input type="file" id="file" accept="audio/*,.wav,.wave,.aif,.aiff,.aifc,.flac,.mp3,.m4a,.mp4,.aac,.ogg,.oga,.opus" hidden>
+
+<footer class="foot">
+  <span>OSCILLA for Ableton Live</span>
+  <span>Measured with ITU-R BS.1770 / EBU R128 loudness and 4&#215; true peak, the same code as the device. Your audio never leaves your device.</span>
+  <span>&#169; 2026 attic rain</span>
+</footer>
+
+<div id="shareNote" hidden></div><script src="live.js"></script><script src="core.js"></script><script src="example.js"></script><script src="app.js"></script><script src="report_share.js"></script><script src="open.js"></script></body></html>
