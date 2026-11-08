@@ -80,7 +80,7 @@
     tp.onclick = function () { var b = $("savePdf"); b ? b.click() : print(); };
     ts.onclick = function () { share(getLink); };
     document.addEventListener("click", function (e) { if (e.target && e.target.id === "shareRep") share(getLink); });
-    var r = $("report"), sync = function () { tp.hidden = ts.hidden = r.hidden; var p = $("patterns"); if (p) p.hidden = r.hidden; };
+    var r = $("report"), sync = function () { tp.hidden = ts.hidden = r.hidden; };
     new MutationObserver(sync).observe(r, { attributes: true, attributeFilter: ["hidden"] }); sync();
   }
 
@@ -93,11 +93,16 @@
     });
     return t.innerHTML;
   }
+  // inside the report, just above its closing buttons and note; the report rebuilds itself (platform chips etc.), so it is put back each time
   function patterns(html) {
     if (!html) return;
-    var r = $("report"), s = document.createElement("section"); s.id = "patterns";
+    var r = $("report"), s = document.createElement("section"); s.id = "patterns"; s.className = "wide o11";
     s.innerHTML = '<details><summary>Patterns</summary><div class="pbody">' + clean(html) + "</div></details>";
-    r.parentNode.insertBefore(s, r.nextSibling);
+    var place = function () {
+      var end = r.querySelector("section.o11:not(#patterns)");
+      if (end && s.nextElementSibling !== end) end.parentNode.insertBefore(s, end);
+    };
+    place(); new MutationObserver(place).observe(r, { childList: true, subtree: true });
     var dt = s.querySelector("details");
     addEventListener("beforeprint", function () { dt.setAttribute("data-was", dt.open ? "1" : ""); dt.open = true; });
     addEventListener("afterprint", function () { dt.open = dt.getAttribute("data-was") === "1"; });
