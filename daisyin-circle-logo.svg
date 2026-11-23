@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <rect width="520" height="240" rx="24" fill="#f3f2ed"/>
+  <g transform="translate(40 36)">
+    <g fill="#aaaab2"><circle cx="84" cy="12" r="12"/><circle cx="118" cy="20" r="12"/><circle cx="144" cy="44" r="12"/><circle cx="152" cy="84" r="12"/><circle cx="144" cy="124" r="12"/><circle cx="118" cy="148" r="12"/><circle cx="84" cy="156" r="12"/><circle cx="50" cy="148" r="12"/><circle cx="24" cy="124" r="12"/><circle cx="16" cy="84" r="12"/><circle cx="24" cy="44" r="12"/><circle cx="50" cy="20" r="12"/></g>
+    <g fill="#171817"><circle cx="68" cy="58" r="15"/><circle cx="100" cy="58" r="15"/><circle cx="52" cy="86" r="15"/><circle cx="84" cy="86" r="15"/><circle cx="116" cy="86" r="15"/><circle cx="68" cy="114" r="15"/><circle cx="100" cy="114" r="15"/></g>
+  </g>
+  <text x="236" y="136" fill="#171817" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" letter-spacing="4">DAISYIN</text>
+</svg>
